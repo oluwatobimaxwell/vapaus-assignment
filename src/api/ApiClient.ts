@@ -1,23 +1,12 @@
-// import Axios from "axios";
+import axios from "axios";
 import { Login, Signup } from "../types";
 
+axios.defaults.baseURL = "https://reqres.in/api";
+
 class ApiClient {
+	login = async (data: Login) => await axios.post("/login", data);
 
-    token: string;
-
-    constructor(){
-        // Resolve the token
-        this.token = "";
-    }
-
-    login = async (data: Login) => {
-
-    }
-
-    signup = async (data: Signup) => {
-        
-    }
-
+	signup = async (data: Signup) => await axios.post("/register", data);
 }
 
-export default ApiClient;
+export default new ApiClient();
